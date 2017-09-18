@@ -18,7 +18,7 @@
 
 	// 1st scene when trigger point is activeated class is added to #map1 element
 	scene1 = new ScrollMagic.Scene({triggerElement: "#rotate-trigger1"})
-								  .setClassToggle('#map1', 'active')	
+								  .setClassToggle('#map1, #cloud1, #cloud2', 'active')	
 								  .addIndicators()
 							      .addTo(controller);
 
@@ -61,7 +61,7 @@
 					$('#map').append(addSection);
 
 					scene2 = new ScrollMagic.Scene({triggerElement: "#rotate-trigger1"})
-								  .setClassToggle('#map1, #map2, #cloud1', 'active')	
+								  .setClassToggle('#map1, #map2', 'active')	
 								  .addIndicators()
 							      .addTo(controller);
 
