@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>The HTML5 Herald</title>
+<meta name="description" content="The HTML5 Herald">
+<meta name="author" content="SitePoint">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+<![endif]-->	
+<style type="text/css">
+
+	html { overflow-x: hidden; }
+	section { position: relative; }
+
+
+	#elevation { height: 155px; position: fixed; right: 181px; bottom: 20px; background: #EB483B; z-index: 2; width: 209px; text-align: center; }
+	#elevation .inner { color: #fff; text-align: center; position: absolute; bottom: 30px; font-family: 'Yanone Kaffeesatz', sans-serif; left: 0; right: 0; font-size: 20px; letter-spacing: 3px; }
+	#elevation .inner p { margin: 0 0 10px 0; }
+	#distance {	width: 150px; height: 220px; position: fixed; z-index: 1; background: #6E6460; right: 50px; bottom: 0; }
+	#distance .inner { color: #fff; text-align: center; position: absolute; bottom: 35px; font-family: 'Yanone Kaffeesatz', sans-serif; left: 0; right: 0; font-size: 20px; letter-spacing: 3px; }
+
+
+
+
+	#start-container { background: rgba(255, 255, 255, 0.6); position: absolute; width: 30%; right: 18%; top: 5%; padding: 5em; border: 5px solid #F3AD2E; }
+
+	
+	.path-container { position: absolute; top: 480px; z-index: 6; left: 150px; }
+	.path-container svg { width: 1220px; stroke-width: 3; }
+	.path-container svg #path1 { fill:none; stroke:#B50835; stroke-miterlimit:10; stroke-dasharray: 2570; stroke-dashoffset: 2580; }
+	.path-container svg #path1.active { stroke-dashoffset: 0; transition: stroke-dashoffset 5s ease; -webkit-transition: stroke-dashoffset 5s ease; }
+
+		.picture-point-1 { position: absolute; top: 710px; left: 500px; cursor: pointer; opacity: 0; }
+		.picture-point-1.show { opacity: 1; transition: opacity 1s ease; cursor: pointer; z-index: 30; }
+		.picture-point-1 .material-icons { animation: pulse 3s infinite; }
+
+		.car-park-1 { position: absolute; bottom: 115px; left: 1230px; cursor: pointer; opacity: 0; }
+		.car-park-1.show { opacity: 1; transition: opacity 1s ease; cursor: pointer; z-index: 30; }
+		.car-park-1 .material-icons { animation: pulse 3s infinite; }
+
+		@keyframes pulse {
+			0% { transform: scale(0.7, 0.7); }
+			50% { transform: scale(1.1, 1.1); }
+			100% { transform: scale(0.7, 0.7); }
+		}
+
+		@-webkit-keyframes pulse {
+			0% { transform: scale(0.7, 0.7); }
+			50% { transform: scale(1.1, 1.1); }
+			100% { transform: scale(0.7, 0.7); }
+		}
+
+
+
+
+
+
+
+
+
+	.path-container-2 { position: absolute; top: -149px; right: 662px; z-index: 2; height: auto; }
+	.path-container-2 svg { width: 500px; stroke-width: 3; }
+	.path-container-2 svg #path2 { fill:none; stroke:#B50835; stroke-miterlimit:10; stroke-dasharray: 2354;  stroke-dashoffset: 2355;  }
+	.path-container-2 svg #path2.active { stroke-dashoffset: 0; transition: stroke-dashoffset 5s ease; -webkit-transition: stroke-dashoffset 5s ease; }
+
+
+	
+
+
+</style>
+</head>
+<body>
+
+
+<div id="map">
+
+	<section id="section1">
+		<div id="start-container"  data-parallax='{"y": -200}'>
+			<p>Maecenas pretium rutrum dui eget pretium. Nullam scelerisque elementum varius. Aliquam scelerisque, felis nec consequat venenatis, nulla purus commodo erat, sit amet varius nisl erat a leo. Curabitur eleifend gravida cursus. Integer vitae ornare lacus. Nam eget lectus accumsan, condimentum urna facilisis, luctus nisl. Praesent non semper nibh, ac placerat neque. Sed eleifend erat id sapien aliquam porta. Curabitur tempus augue sit amet metus auctor rutrum. Vestibulum cursus maximus odio, eget bibendum tortor vestibulum quis.</p>
+			<button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="legOne()">
+			  Start
+			</button>
+		</div>
+
+		<!-- -Map section 1 -->
+		<img src="images/maps/section1.jpg" alt="">
+		
+		<div id="hotspot1" class="photo-point picture-point-1" data-photopoint="1"><i class="material-icons">camera_alt</i></div>
+		<div id="hotspot2" class="photo-point car-park-1" data-photopoint="1"><i class="material-icons">directions_car</i></div>
+
+		<div class="path-container">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1222.8 1076.3" style="enable-background:new 0 0 1222.8 1076.3;" xml:space="preserve">
+				<path id="path1" d="M22.9,0.4c0,0-13,10,0,22.5s0,13,0,16s-7,5-9.5,22c0,0-26.5,14.5-3.5,17.5s47-3,47-3l-28.2,35 c0,0,24.2-0.5,33.2-2.5s29.5-4.5,47,10c0,0,25.5,8.5,36,16.5c0,0,32.5,2.5,38.5,2.5s-30,19.5-30,19.5s49.5-6.5,52.5,6 c0,0,25.5,0.5,32.5,23.5c0,0,7,9.5,12,13s39,27,39,27s-19-0.5,0,11.5s11.5,29,54.5,27c0,0,19-13.7,15.5,0.2 c-3.5,13.8-6.5,31.3-11,33.8s8,18.5,8,18.5s-19,91.5,35,116.5c0,0,40,14.5,37.5,20.5c0,0,12,13,23,21.5s23.5,11,61.5,45 c0,0-7-23.5-11-23.5s18.5,3.5,38,26.5c0,0,1.5-14-6-26.5s20.5,17.5,20.5,17.5s2-7,0-12c0,0,26,45.5,46,0c0,0,3,8,0,12.5 s15.5-14,22-14s29.5-23,29.5-23s15-6.5,6,4.5c0,0,7,3,8,5.5c0,0-15,2-14,11.5c0,0,5-6.5,62,7.5c0,0,14-5,78.5,25 c0,0,45.5,13,142,17c0,0,41.5-0.5,64.5-5.5s92.5-2,92.5-2s7.5,2,19-3s118.5-5,111,105c0,0-2,44-25,57c0,0-23.5,62-40,125.5 c0,0-24.5,44-11,91.5c0,0,13.5,47-5,97.5c0,0-3.5,12.5,5.5,25l-58,36"/>
+			</svg>
+		</div>
+	</section>
+
+
+	<section  id="section2">
+		<img src="images/maps/section2.jpg" alt="">
+	
+		<div class="path-container-2">				
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 498 756" style="enable-background:new 0 0 498 756;" xml:space="preserve">
+				<path id="path2" d="M498,0c0,0-71.5,30-76,50l-41,15c0,0-21-6.5-80.5,43c0,0-15-33-26.5-22.5c0,0-13.5,3-4,16.5l-15.5,38 c0,0-16.5,13-19,29l-24,26c0,0-41.5,1.5-43,40c0,0-9,21.5-7,46c0,0,0.5,11.5-12.5,35c0,0,0.5,51-14.5,70L78,443 c0,0-22,15.5-42.5,18s-28,17.5-28,17.5L0,483c0,0,17,18.5,39.5,15l-11,17c0,0-13,39,51,125c0,0,42.5,26.5,56,34h23 c0,0,26,1.5,31,13l63.5,12c0,0,19-4,12.5,31.5c0,0,6.5,19,13.5,25.5"/>
+			</svg>
+		</div>
+	</section>
+
+
+	<div id="elevation">
+		<div class="inner">
+			<i class="mountains material-icons">terrain</i>
+			<p>elevation<br/>gain</p>
+			<span id="m">0</span> m
+		</div>
+	</div>
+
+	<div id="distance">
+		<div class="inner">
+			<i class="walker material-icons">directions_walk</i>
+			<p>distance</p>
+			<span id="km">0</span> km
+		</div>
+	</div>
+	
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing-1.3.js"></script>
+<script type="text/javascript" src="js/jquery.parallax-scroll.js"></script>
+<script>
+
+
+
+
+	function legOne() {
+
+		var path1  = 2580;
+		var id   = setInterval(frame);
+	
+		function frame() {
+			
+			// when pos equals 0 then animation is completed and clears the setInterval
+			if (path1 == 0) {
+				document.getElementById('hotspot2').classList.add('show');
+				
+				clearInterval(id);
+
+				legTwo();
+		
+			} else {
+
+				if (path1 == 1915){
+					document.getElementById('hotspot1').classList.add('show');			
+				}
+
+				document.getElementById('path1').style.strokeDashoffset = path1
+
+				//console.log(path1)
+				path1--;
+				
+			}
+		}
+	}
+
+
+	function legTwo() {
+
+		var path2 = 2355;
+		var id    = setInterval(frame);
+
+		function frame() {
+			
+			// when pos equals 0 then animation is completed and clears the setInterval
+			if (path2 == 0) {
+				
+				document.getElementById('hotspot2').classList.add('show');			
+				clearInterval(id);
+	
+			} else {
+
+				document.getElementById('path2').style.strokeDashoffset = path2				
+				path2--;			
+			}		
+		}
+	}
+
+
+
+
+
+</script>
+</body>
